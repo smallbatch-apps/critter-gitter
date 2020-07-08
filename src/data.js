@@ -672,6 +672,22 @@ export default [
     rarity: 2,
   },
   {
+    cpId: "b-41",
+    category: "bug",
+    name: "Man-faced Stinkbug",
+    location: "On Flowers",
+    shadow: null,
+    price: 1000,
+    months: {
+      north: [2, 3, 4, 5, 6, 7, 8, 9],
+      south: [0, 1, 2, 3, 8, 9, 10, 11],
+    },
+    times: null,
+    rainOnly: false,
+    rainHide: false,
+    rarity: 2,
+  },
+  {
     cpId: "b-54",
     category: "bug",
     name: "Goliath Beetle",
@@ -783,7 +799,7 @@ export default [
     cpId: "b-60",
     category: "bug",
     name: "Golden Stag",
-    location: "Palm Trees",
+    location: "On Palm Trees",
     shadow: null,
     price: 12000,
     months: {

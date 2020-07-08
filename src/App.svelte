@@ -13,9 +13,6 @@
     overflow-x: hidden;
   }
 
-  footer {
-  }
-
   header {
     text-align: center;
     position: absolute;

@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;600&family=Wellfleet&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  padding: 1rem;
+}
+
+h1 {
+  display: inline-block;
+  margin: 0.3rem;
+}
+
+h1.first {
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+  animation: shake 8s;
+
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+h1.second {
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+  animation: shake2 8s;
+
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+}
+
+@keyframes shake2 {
+  0% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  10% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  30% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  70% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  80% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  90% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  100% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Wellfleet", cursive;
+  margin-top: 0;
+  color: white;
+  z-index: 60;
+  position: relative;
+}
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+
+  background-color: #9ae6b4;
+  min-height: 100%;
+}
+
+main {
+  height: 100vh;
+}
+
+.panel {
+  padding: 1rem;
+  transition: all 0.5s;
+}
+
+.time {
+  font-weight: 600;
+  font-size: 2rem;
+  color: white;
+  position: sticky;
+}
+
+.flex {
+  display: flex;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.shrink {
+  flex-shrink: 1;
+}
+
+@keyframes cloud1 {
+  0% {
+    left: -10%;
+    transform: translate(-10%) rotate(1deg);
+  }
+  25% {
+    left: 50%;
+    transform: translate(50%) rotate(-1deg);
+  }
+  50% {
+    left: 110%;
+    transform: translate(110%) rotate(0deg);
+  }
+  75% {
+    left: 50%;
+    transform: translate(50%) rotate(0deg);
+  }
+  100% {
+    left: -10%;
+    transform: translate(-10%) rotate(1deg);
+  }
+}
+
+@keyframes cloud2 {
+  0% {
+    right: -10%;
+    transform: translate(-10%) rotate(1deg);
+  }
+  25% {
+    right: 50%;
+    transform: translate(50%) rotate(-1deg);
+  }
+  50% {
+    right: 110%;
+    transform: translate(110%) rotate(0deg);
+  }
+  75% {
+    right: 50%;
+    transform: translate(50%) rotate(0deg);
+  }
+  100% {
+    right: -10%;
+    transform: translate(-10%) rotate(1deg);
+  }
+}
+
+@keyframes tree {
+  0% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
+}

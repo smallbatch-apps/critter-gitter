@@ -182,110 +182,119 @@
 
 <div class="critters panel {$page == 'critters' ? 'grow' : 'shrink'}">
 
-  {#if showFinding}
-    <div transition:slide class="finding-text">
-      <i
-        class="hide-button fad fa-times"
-        on:click={() => (showFinding = false)} />
-      Finding critters available in {finalLocationDate.toLocaleString(
-        'default',
-        {
-          month: 'long'
-        }
-      )} at {lightFormat(finalLocationDate, 'h:mm aaaa')} in the {$activeLocation.hemisphere}ern
-      hemisphere.
-      {#if noLocations}You will get a better result if you add locations.{/if}
+  {#if $page === 'critters'}
+    <div transition:slide>
+      {#if showFinding}
+        <div transition:slide class="finding-text">
+          <i
+            class="hide-button fad fa-times"
+            on:click={() => (showFinding = false)} />
+          Finding critters available in {finalLocationDate.toLocaleString(
+            'default',
+            {
+              month: 'long'
+            }
+          )} at {lightFormat(finalLocationDate, 'h:mm aaaa')} in the {$activeLocation.hemisphere}ern
+          hemisphere.
+          {#if noLocations}
+            You will get a better result if you add locations.
+          {/if}
 
-    </div>
-  {/if}
-  <div class="button-row">
-    <label class="critterTypeButton {bug ? 'button-on' : ''}">
-      <input class="hidden" type="checkbox" bind:checked={bug} />
-      <i class="fad fa-bug button-icon" />
-    </label>
-    <label class="critterTypeButton {fish ? 'button-on' : ''}">
-      <input class="hidden" type="checkbox" bind:checked={fish} />
-      <i class="fad fa-fish button-icon fa-swap-opacity" />
-    </label>
-    <label class="critterTypeButton {sea ? 'button-on' : ''}">
-      <input class="hidden" type="checkbox" bind:checked={sea} />
-      <i class="fad fa-star button-icon fa-swap-opacity" />
-    </label>
-
-  </div>
-  <div class="button-row">
-
-    <label class="rainbox {isRaining ? 'rainbox-on' : ''}">
-      <input class="hidden" type="checkbox" bind:checked={isRaining} />
-      <i class="fad fa-cloud-rain" />
-      Rain
-    </label>
-
-    <label class="rainbox {hideTrash ? 'rainbox-on' : ''}">
-      <input class="hidden" type="checkbox" bind:checked={hideTrash} />
-      Hide Common
-    </label>
-
-    <div class="critterTypeButton">
-      {#if chooseSort || sortBy == 'cpId'}
-        <i
-          transition:fade
-          class="fad fa-sort-numeric-down sort-icon"
-          on:click={() => {
-            chooseSort = !chooseSort;
-            sortBy = 'cpId';
-          }} />
-      {/if}
-      {#if chooseSort || sortBy == 'name'}
-        <i
-          transition:fade
-          class="fad fa-sort-alpha-down sort-icon"
-          on:click={() => {
-            chooseSort = !chooseSort;
-            sortBy = 'name';
-          }} />
-      {/if}
-      {#if chooseSort || sortBy == 'bells'}
-        <i
-          transition:fade
-          class="fad fa-bells sort-icon"
-          on:click={() => {
-            chooseSort = !chooseSort;
-            sortBy = 'bells';
-          }} />
-      {/if}
-    </div>
-
-  </div>
-
-  {#if filteredCritters.length > 0}
-    <div class="critter-box">
-      {#each filteredCritters as critter}
-        <div transition:slide class="critter-item">
-          <div class="critter-top-row">
-            <div class="critter-name">
-              {#if critter.category === 'bug'}
-                <i class="fad fa-bug" />
-              {/if}
-              {#if critter.category === 'fish'}
-                <i class="fad fa-fish fa-swap-opacity" />
-              {/if}
-              {#if critter.category === 'sea'}
-                <i class="fad fa-star fa-swap-opacity" />
-              {/if}
-              {critter.name}
-            </div>
-          </div>
-
-          <div class="critter-bottom-row">
-            <div class="critter-detail" />
-            <div class="critter-detail text-center">
-              {critter.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-            </div>
-            <div class="critter-detail text-right">{critter.location}</div>
-          </div>
         </div>
-      {/each}
+      {/if}
+      <div class="button-row">
+        <label class="critterTypeButton {bug ? 'button-on' : ''}">
+          <input class="hidden" type="checkbox" bind:checked={bug} />
+          <i class="fad fa-bug button-icon" />
+        </label>
+        <label class="critterTypeButton {fish ? 'button-on' : ''}">
+          <input class="hidden" type="checkbox" bind:checked={fish} />
+          <i class="fad fa-fish button-icon fa-swap-opacity" />
+        </label>
+        <label class="critterTypeButton {sea ? 'button-on' : ''}">
+          <input class="hidden" type="checkbox" bind:checked={sea} />
+          <i class="fad fa-star button-icon fa-swap-opacity" />
+        </label>
+
+      </div>
+      <div class="button-row">
+
+        <label class="rainbox {isRaining ? 'rainbox-on' : ''}">
+          <input class="hidden" type="checkbox" bind:checked={isRaining} />
+          <i class="fad fa-cloud-rain" />
+          Rain
+        </label>
+
+        <label class="rainbox {hideTrash ? 'rainbox-on' : ''}">
+          <input class="hidden" type="checkbox" bind:checked={hideTrash} />
+          Hide Common
+        </label>
+
+        <div class="critterTypeButton">
+          {#if chooseSort || sortBy == 'cpId'}
+            <i
+              transition:fade
+              class="fad fa-sort-numeric-down sort-icon"
+              on:click={() => {
+                chooseSort = !chooseSort;
+                sortBy = 'cpId';
+              }} />
+          {/if}
+          {#if chooseSort || sortBy == 'name'}
+            <i
+              transition:fade
+              class="fad fa-sort-alpha-down sort-icon"
+              on:click={() => {
+                chooseSort = !chooseSort;
+                sortBy = 'name';
+              }} />
+          {/if}
+          {#if chooseSort || sortBy == 'bells'}
+            <i
+              transition:fade
+              class="fad fa-bells sort-icon"
+              on:click={() => {
+                chooseSort = !chooseSort;
+                sortBy = 'bells';
+              }} />
+          {/if}
+        </div>
+
+      </div>
+
+      {#if filteredCritters.length > 0}
+        <div class="critter-box">
+          {#each filteredCritters as critter}
+            <div transition:slide class="critter-item">
+              <div class="critter-top-row">
+                <div class="critter-name">
+                  {#if critter.category === 'bug'}
+                    <i class="fad fa-bug" />
+                  {/if}
+                  {#if critter.category === 'fish'}
+                    <i class="fad fa-fish fa-swap-opacity" />
+                  {/if}
+                  {#if critter.category === 'sea'}
+                    <i class="fad fa-star fa-swap-opacity" />
+                  {/if}
+                  {critter.name}
+                </div>
+              </div>
+
+              <div class="critter-bottom-row">
+                <div class="critter-detail" />
+                <div class="critter-detail text-center">
+                  {critter.price
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                </div>
+                <div class="critter-detail text-right">{critter.location}</div>
+              </div>
+            </div>
+          {/each}
+        </div>
+      {/if}
+
     </div>
   {/if}
 </div>

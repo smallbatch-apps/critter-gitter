@@ -31,26 +31,29 @@
     console.log(navigator.geolocation);
     timeZone = (n / 60) * -1;
 
-    navigator.geolocation.getCurrentPosition(position => {
-      console.log('get position success')
-      hemisphere = position.coords.latitude > 0 ? "north" : "south";
-      console.log(hemisphere);
-      const newLocation = {
-        title: "Home",
-        hemisphere,
-        timeZone,
-        id: Date.now()
-      };
-      const newState = [...locations, newLocation];
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        console.log("get position success");
+        hemisphere = position.coords.latitude > 0 ? "north" : "south";
+        console.log(hemisphere);
+        const newLocation = {
+          title: "Home",
+          hemisphere,
+          timeZone,
+          id: Date.now()
+        };
+        const newState = [...locations, newLocation];
 
-      updateStore(newState);
-      selectLocation(newLocation);
-      hemisphere = "north";
-      timeZone = "";
-    }, error => {
-      console.log('get position error');
-      console.log(error);
-    };
+        updateStore(newState);
+        selectLocation(newLocation);
+        hemisphere = "north";
+        timeZone = "";
+      },
+      error => {
+        console.log("position error");
+        console.log(error);
+      }
+    );
   }
 
   function addLocation() {

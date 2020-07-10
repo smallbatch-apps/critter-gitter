@@ -27,11 +27,14 @@
   function autoFill(e) {
     e.preventDefault();
     let n = new Date().getTimezoneOffset();
-
+    console.log("running autofill function");
+    console.log(navigator.geolocation);
     timeZone = (n / 60) * -1;
 
     navigator.geolocation.getCurrentPosition(position => {
+      console.log('get position success')
       hemisphere = position.coords.latitude > 0 ? "north" : "south";
+      console.log(hemisphere);
       const newLocation = {
         title: "Home",
         hemisphere,
@@ -44,7 +47,10 @@
       selectLocation(newLocation);
       hemisphere = "north";
       timeZone = "";
-    });
+    }, error => {
+      console.log('get position error');
+      console.log(error);
+    };
   }
 
   function addLocation() {

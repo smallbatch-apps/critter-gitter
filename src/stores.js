@@ -15,8 +15,6 @@ const defaultActiveLocation = JSON.parse(
   hemisphere,
 };
 
-console.log();
-
 export const activeLocation = writable(defaultActiveLocation);
 
 export const page = writable("home");

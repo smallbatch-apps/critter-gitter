@@ -92,7 +92,7 @@
     --fa-secondary-opacity: 1;
     --fa-primary-color: #68d391;
     --fa-secondary-color: #f6e05e;
-    animation: tree 5s;
+    animation: tree 3s;
     transition: all 1s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
